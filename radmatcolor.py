@@ -12,6 +12,8 @@ import os
 import sys
 import csv
 
+# BIG CHANGE
+
 ### READING ARGUMENTS IN TERMINAL ###
 if len(sys.argv) == 1:      # no arguments
     print('\nScript radmatcolor.py recolors your radiant input (.inp file) as described in material color dictionary (.csv file).\nTo run:\npython radmatcolor.py <rad_input> <mat_color_dict> [<output_name>]\nHere arguments inside [] are optional.\nFor help run:\npython radmatcolor.py -h\n')
