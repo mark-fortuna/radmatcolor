@@ -79,9 +79,29 @@ for i,v in enumerate(line_mat):
 			change = f"didn't change material {v}"
 	print(f'line {i:03}:\t{change}')
 
+### FUNCTION TO INSERT MATERIALS VISABILITY ###
+def insert_list_before_pattern(original_list:list, insert_list:list, insert_before_pattern:str):
+	for i,line in enumerate(original_list):
+		if re.search(insert_before_pattern, line):
+			insertion_point = i
+	# print(f'{insertion_point = }')
+	# print(original_list[:insertion_point])
+	# print(original_list[insertion_point:])
+	begining = original_list[:insertion_point]
+	middle = insert_list
+	end = original_list[insertion_point:]
+	out_list = []
+	for b in begining:
+		out_list.append(b)
+	for m in middle:
+		out_list.append(m)
+	for e in end:
+		out_list.append(e)
+	return out_list
+
 ### MAKING MATERIALS INVISIBLE ###
-mat_vis_text = '\n\nvisibility { \n  materials_off ' + ' '.join(invisible_cells) + ' \n}'
-out_lines.append(mat_vis_text)
+mat_vis_lines = ['visibility {\n', '  materials_off '+ ' '.join(invisible_cells)+'\n', '}\n','\n']
+out_lines = insert_list_before_pattern(out_lines, mat_vis_lines, r'\s*lights\s+\{')
 
 ### FILE SAVING ###
 if specified_out_name:
