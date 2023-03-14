@@ -12,7 +12,7 @@ Radmatcolor is usefull when specific colors should represent specific materials,
 It's a valuable tool when presenting MCNP model history. When new cells are added or older ones are modified, the renders can end up seemingly random colors.
 
 ## How to use?
-Radmat color requires a color dictionary: a .csv (somma separated values) file in which each material is assigned a RGBA color. The first column of this file should be the material number, the other four columns for RGBA values. RGBA values for desired colors can be generated using tools such as [RGBA Color Picker](https://rgbacolorpicker.com).
+Radmat color requires a color dictionary: a .csv (somma separated values) file in which each material is assigned a RGBA color. The first column of this file should be the material number, the other four columns for RGBA values. RGBA values for desired colors can be generated using tools such as [RGBA Color Picker](https://rgbacolorpicker.com). If the material should be invisible the second column should have the tag 'invisible'.
 
 ### Running from terminal
 Run in folder with files:
@@ -25,7 +25,6 @@ Example:
 `python radmatcolor.py radiant.inp color_dict.csv radiant-recolored.inp`
 
 ## Further improvements
-1. A way to change material visibility should be added. Maybe if in the first column a minus ("-") sign is present, that material's vsibility should be turned off (eg: -3, turns of material 3).
-2. Different material densities could be represented with the same color, but different shades. Less dens cells could be a lighter shade.
+1. Different material densities could be represented with the same color, but different shades. Less dens cells could be a lighter shade.
 
 
